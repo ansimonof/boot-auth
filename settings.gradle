@@ -1,0 +1,5 @@
+rootProject.name = 'boot-auth'
+
+include ':boot-modules'
+project(':boot-modules').projectDir = new File(settingsDir, '../boot-modules')
+

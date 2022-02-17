@@ -11,7 +11,7 @@ import java.util.Objects;
 @Service
 public class SessionAuthenticationTokenResolver implements AuthenticationTokenResolver {
 
-    private static final String SESSION = "SESSION";
+    private static final String SESSION = "session";
 
     private String getSession(HttpServletRequest request) {
         if (request.getCookies() != null) {

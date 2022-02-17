@@ -2,8 +2,7 @@ package org.myorg.module.auth.authentication.provider;
 
 import org.myorg.module.auth.access.context.ApiKeyAuthenticatedContext;
 import org.myorg.module.auth.authentication.token.ApiKeyAuthenticationToken;
-import org.myorg.module.auth.service.ApiKeyCredentialsService;
-import org.myorg.module.auth.service.credentials.ApiKeyCredentials;
+import org.myorg.module.auth.service.apikey.ApiKeyCredentialsService;
 import org.myorg.modules.modules.exception.ModuleException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -45,12 +44,11 @@ public class ApiKeyAuthenticationProvider implements CustomAuthenticationProvide
         }
 
         String apiKey = (String) apiKeyAuth.getCredentials();
-        ApiKeyCredentials credentials = new ApiKeyCredentials(apiKey);
-        if (!apiKeyCredentialsService.isCorrect(credentials)) {
+        if (!apiKeyCredentialsService.isApiKeyExists(apiKey)) {
             throw new BadCredentialsException("Bad API key: " + apiKey);
         }
 
-        ApiKeyAuthenticatedContext context = new ApiKeyAuthenticatedContext(apiKeyCredentialsService.createSource(credentials));
+        ApiKeyAuthenticatedContext context = new ApiKeyAuthenticatedContext(apiKeyCredentialsService.createSource(apiKey));
         apiKeyAuth = new ApiKeyAuthenticationToken(apiKey, Collections.emptySet(), context);
         apiKeyAuth.setAuthenticated(true);
 

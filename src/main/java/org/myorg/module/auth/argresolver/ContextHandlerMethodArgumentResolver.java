@@ -1,6 +1,6 @@
 package org.myorg.module.auth.argresolver;
 
-import org.myorg.module.auth.access.context.Context;
+import org.myorg.modules.access.context.Context;
 import org.springframework.core.MethodParameter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -11,7 +11,7 @@ import java.util.Objects;
 @Service
 public class ApiKeyAuthenticationTokenResolver implements AuthenticationTokenResolver {
 
-    private static final String API_KEY = "api_key";
+    private static final String API_KEY = "api-key";
 
     private String getApiKey(HttpServletRequest request) {
         if (request.getCookies() != null) {
@@ -37,6 +37,6 @@ public class ApiKeyAuthenticationTokenResolver implements AuthenticationTokenRes
 
     @Override
     public String getName() {
-        return "Api key resolver";
+        return this.getClass().getSimpleName();
     }
 }

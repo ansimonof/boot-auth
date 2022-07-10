@@ -19,12 +19,12 @@ public class AuthModule extends Module {
     }
 
     @Override
-    public void init() throws ModuleException {
+    public void onStart() throws ModuleException {
 
     }
 
     @Override
-    public void destroy() throws ModuleException {
+    public void onDestroy() throws ModuleException {
 
     }
 }

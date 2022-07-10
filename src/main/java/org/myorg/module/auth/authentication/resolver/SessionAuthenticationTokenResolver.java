@@ -37,7 +37,7 @@ public class SessionAuthenticationTokenResolver implements AuthenticationTokenRe
 
     @Override
     public String getName() {
-        return "Session resolver";
+        return this.getClass().getSimpleName();
     }
 }
 
